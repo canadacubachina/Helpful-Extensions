@@ -21,7 +21,7 @@ public sealed class AdminMenu : INavigationProvider
 
     public ValueTask BuildNavigationAsync(string name, NavigationBuilder builder)
     {
-        if (!name.EqualsOrdinalIgnoreCase("admin")) return ValueTask.CompletedTask;
+        if (!name.Equals("admin",StringComparison.OrdinalIgnoreCase)) return ValueTask.CompletedTask;
 
         builder.Add(T["Configuration"], configuration => configuration
             .Add(T["Import/Export"], importExport => importExport

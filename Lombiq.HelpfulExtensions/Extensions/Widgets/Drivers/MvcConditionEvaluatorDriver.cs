@@ -29,6 +29,6 @@ public sealed class MvcConditionEvaluatorDriver : ContentDisplayDriver, IConditi
         if (string.IsNullOrWhiteSpace(value)) return true;
 
         return _hca.HttpContext?.Request.RouteValues.TryGetValue(name, out var routeValue) == true &&
-               value.EqualsOrdinalIgnoreCase(routeValue?.ToString());
+               value.Equals(routeValue?.ToString(), StringComparison.OrdinalIgnoreCase);
     }
 }

@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <Import Condition="'$(NuGetBuild)' != 'true'" Project="..\..\..\Utilities\Lombiq.Npm.Targets\Lombiq.Npm.Targets.props" />
+  <!--<Import Condition="'$(NuGetBuild)' != 'true'" Project="..\..\..\Utilities\Lombiq.Npm.Targets\Lombiq.Npm.Targets.props" />-->
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <!--<TargetFramework>net8.0</TargetFramework>-->
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*;node_modules\**</DefaultItemExcludes>
   </PropertyGroup>
@@ -20,7 +20,7 @@
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(NuGetBuild)' != 'true'">
+  <!--<PropertyGroup Condition="'$(NuGetBuild)' != 'true'">
     <SourceGeneratorLocation>$(SolutionDir)src\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.SourceGenerators\bin\Debug\netstandard2.0\Lombiq.HelpfulLibraries.SourceGenerators.dll</SourceGeneratorLocation>
     <SourceGeneratorLocation Condition=" '$(Configuration)' != 'Debug' ">
       $(SolutionDir)src\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.SourceGenerators\bin\Release\netstandard2.0\Lombiq.HelpfulLibraries.SourceGenerators.dll
@@ -29,7 +29,7 @@
 
   <Target Name="CustomBeforeCompile" BeforeTargets="Compile" Condition="'$(NuGetBuild)' != 'true'">
     <MSBuild Condition="!Exists('$(SourceGeneratorLocation)')" Projects="..\..\..\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.SourceGenerators\Lombiq.HelpfulLibraries.SourceGenerators.csproj" />
-  </Target>
+  </Target>-->
 
   <ItemGroup>
     <None Include="..\Readme.md" />
@@ -52,7 +52,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Autoroute" Version="2.1.0" />
+    <!--<PackageReference Include="OrchardCore.Autoroute" Version="2.1.0" />
     <PackageReference Include="OrchardCore.ContentFields" Version="2.1.0" />
     <PackageReference Include="OrchardCore.Contents" Version="2.1.0" />
     <PackageReference Include="OrchardCore.Flows" Version="2.1.0" />
@@ -60,14 +60,19 @@
     <PackageReference Include="OrchardCore.Lists" Version="2.1.0" />
     <PackageReference Include="OrchardCore.Liquid" Version="2.1.0" />
     <PackageReference Include="OrchardCore.Markdown" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.MetaWeblog.Abstractions" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.Module.Targets" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.Rules.Abstractions" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.Workflows" Version="2.1.0" />
-    <PackageReference Include="Scrutor" Version="6.1.0" />
+    <PackageReference Include="OrchardCore.MetaWeblog.Abstractions" Version="2.1.0" />-->
+    <PackageReference Include="OrchardCore.Module.Targets" />
+    <!--<PackageReference Include="OrchardCore.Rules.Abstractions" Version="2.1.0" />
+    <PackageReference Include="OrchardCore.Workflows" Version="2.1.0" />-->
+    <PackageReference Include="Scrutor" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(NuGetBuild)' != 'true'">
+  <ItemGroup>
+    <ProjectReference Include="..\..\Helpful-Libraries\Lombiq.HelpfulLibraries.OrchardCore\Lombiq.HelpfulLibraries.OrchardCore.csproj" />
+    <ProjectReference Include="..\..\Helpful-Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.csproj" />
+  </ItemGroup>
+  
+  <!--<ItemGroup Condition="'$(NuGetBuild)' != 'true'">
     <ProjectReference Include="..\..\..\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.Attributes\Lombiq.HelpfulLibraries.Attributes.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="true" />
     <ProjectReference Include="..\..\..\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.OrchardCore\Lombiq.HelpfulLibraries.OrchardCore.csproj" />
     <ProjectReference Include="..\..\..\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.SourceGenerators\Lombiq.HelpfulLibraries.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
@@ -81,6 +86,6 @@
     <PackageReference Include="Lombiq.Npm.Targets" Version="1.5.0" />
   </ItemGroup>
 
-  <Import Condition="'$(NuGetBuild)' != 'true'" Project="..\..\..\Utilities\Lombiq.Npm.Targets\Lombiq.Npm.Targets.targets" />
+  <Import Condition="'$(NuGetBuild)' != 'true'" Project="..\..\..\Utilities\Lombiq.Npm.Targets\Lombiq.Npm.Targets.targets" />-->
 
 </Project>
