@@ -75,12 +75,12 @@ using static Lombiq.HelpfulExtensions.FeatureIds;
     Description = "Adds a content type definition setting and authorization handler for richer security options."
 )]
 
-[assembly: Feature(
-    Id = ShapeTracing,
-    Name = "Lombiq Helpful Extensions - Shape Tracing Helpful Extensions",
-    Category = "Development",
-    Description = "Adds a dump of metadata to the output about every shape."
-)]
+//[assembly: Feature(
+//    Id = ShapeTracing,
+//    Name = "Lombiq Helpful Extensions - Shape Tracing Helpful Extensions",
+//    Category = "Development",
+//    Description = "Adds a dump of metadata to the output about every shape."
+//)]
 
 [assembly: Feature(
     Id = FeatureIds.Shortcodes,
